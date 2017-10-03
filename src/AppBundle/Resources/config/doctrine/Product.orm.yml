@@ -1,0 +1,22 @@
+AppBundle\Entity\Product:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ProductRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        sku:
+            type: string
+            length: '255'
+        name:
+            type: string
+            length: '255'
+        price:
+            type: decimal
+            precision: '13'
+            scale: '4'
+    lifecycleCallbacks: {  }

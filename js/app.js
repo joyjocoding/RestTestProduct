@@ -1,7 +1,7 @@
 var app = angular.module("myModule", ['ngResource']);
 
 app.factory('Products', ['$resource', function($resource) {
-    return $resource('http://localhost:8000/app_dev.php/product/posts/:id',
+    return $resource('http://localhost:8000/app_dev.php/test/products/:id',
 	{id:'@id'},
 	{
 		update: { method:'PUT' }
@@ -46,7 +46,7 @@ app.controller("myController", ['$scope','Products', function($scope,Products){
 		$scope.selectedProduct.$delete(function() {});		
 	};
 
-	$scope.orderProp = 'SKU';
+	$scope.orderProp = 'sku';
 	$scope.direction = false;
 
 	$scope.sort = function(column) {

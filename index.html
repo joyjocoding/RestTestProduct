@@ -26,7 +26,7 @@
 					<thead>
 						<tr>
 							<th>SKU		
-								<button class="btn btn-mini btn-link" ng-click="sort('s_k_u')"><i class="icon-sort"></i>
+								<button class="btn btn-mini btn-link" ng-click="sort('sku')"><i class="icon-sort"></i>
 								</button>							
 							</th>
 							
@@ -46,7 +46,7 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat = "product in products| orderBy:orderProp:direction"">
-							<td>{{product.s_k_u}}</td>
+							<td>{{product.sku}}</td>
 							<td>{{product.name}}</td>
 							<td>{{product.price}} &euro;</td>
 							<td><button type = "button" data-toggle = "modal" data-target = "#update_product" ng-click = "selectProduct(product)" class = "btn btn-sm btn-warning"><span class = "glyphicon glyphicon-edit"></span> Edit</button> | <button type = "button" data-toggle = "modal"  data-target = "#delete_product" ng-click = "selectProduct(product)" class = "btn btn-sm btn-danger"><span class = "glyphicon glyphicon-trash"></span> Delete</button></td>
@@ -68,18 +68,18 @@
 				<div class="modal-body">	
 						<div class = "form-group">
 							<label>SKU</label>
-							<input type  = "text" name = "SKU" class = "form-control" required ng-model = "newProduct.sKU"/>
-							<span ng-show="newform.SKU.$error.required">The field can not be empty!</span>	
+							<input type  = "text" name = "sku" class = "form-control" required ng-model = "newProduct.sku"/>
+							<span ng-show="newform.sku.$error.required">The field can not be empty!</span>	
 						</div>
 						<div class = "form-group">
 							<label>Name</label>
-							<input type = "text" name = "Name" class = "form-control" required ng-model = "newProduct.name"/>
-							<span ng-show="newform.Name.$error.required">The field can not be empty!</span>	
+							<input type = "text" name = "name" class = "form-control" required ng-model = "newProduct.name"/>
+							<span ng-show="newform.name.$error.required">The field can not be empty!</span>	
 						</div>
 						<div class = "form-group">
 							<label>Price</label>
-							<input type = "number" name = "Price" class = "form-control" required ng-model = "newProduct.price"/>
-							<span ng-show="newform.Price.$error.required">The field should be the currency!</span>	
+							<input type = "number" name = "price" class = "form-control" required ng-model = "newProduct.price"/>
+							<span ng-show="newform.price.$error.required">The field should be the currency!</span>	
 						</div>
 				</div>
 				<div class="modal-footer">
@@ -101,18 +101,18 @@
 				<div class="modal-body">	
 						<div class = "form-group">
 							<label>SKU</label>
-							<input type  = "text" name = "SKU" class = "form-control" required ng-model = "selectedProduct.s_k_u"/>
-							<span ng-show="myform.SKU.$error.required">The field can not be empty!</span>
+							<input type  = "text" name = "sku" class = "form-control" required ng-model = "selectedProduct.sku"/>
+							<span ng-show="myform.sku.$error.required">The field can not be empty!</span>
 						</div>
 						<div class = "form-group">
 							<label>Name</label>
-							<input type = "text" name = "Name" class = "form-control" required ng-model = "selectedProduct.name"/>
-							<span ng-show="myform.Name.$error.required">The field can not be empty!</span>
+							<input type = "text" name = "name" class = "form-control" required ng-model = "selectedProduct.name"/>
+							<span ng-show="myform.name.$error.required">The field can not be empty!</span>
 						</div>
 						<div class = "form-group">
 							<label>Price</label>
-							<input type = "number" name = "Price" class = "form-control" required ng-model = "selectedProduct.price" ng-model = "newProduct.price"/>
-							<span ng-show="myform.Price.$error.required">The field should be the currency!</span>	
+							<input type = "number" name = "price" class = "form-control" required ng-model = "selectedProduct.price" ng-model = "newProduct.price"/>
+							<span ng-show="myform.price.$error.required">The field should be the currency!</span>	
 						</div>
 				</div>
 				<div class="modal-footer">
