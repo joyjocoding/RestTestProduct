@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<meta charset  = "UTF-8"  name = "viewport" content = "width=device-width, initial-scale=1"/>
+		<title>On4U Test</title>
+		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.css" />
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<script src  = "js/jquery-3.1.1.js"></script>	
+		<script src  = "js/bootstrap.js"></script>	
+		<script src = "js/angular.js"></script>
+		<script src="js/angular-resource.js"></script>	
+		<script src = "js/app.js"></script>		
+			
+	</head>
+<body ng-app = "myModule" ng-controller = "myController">
+	<div class = "row">
+		<div class = "col-md-2"></div>
+		<div class = "col-md-8 well">
+			<h3 class = "text-primary">Products</h3>
+			<hr style = "border-top:1px dotted #000;"/>
+			<div ><button class = "btn btn-sm btn-primary pull-right" data-toggle="modal" data-target="#add_product"><span class = "glyphicon glyphicon-plus"> NEW PRODUCT </span></button></div>
+			<div class = "container-fluid">
+				<br />
+				<br />
+				<table class = "table table-bordered alert-warning">
+					<thead>
+						<tr>
+							<th>SKU		
+								<button class="btn btn-mini btn-link" ng-click="sort('s_k_u')"><i class="icon-sort"></i>
+								</button>							
+							</th>
+							
+							<th>Name
+								<button class="btn btn-mini btn-link" ng-click="sort('name')"><i class="icon-sort"></i>
+								</button>
+							</th>
+							
+							<th>Price	
+								<button class="btn btn-mini btn-link" ng-click="sort('price')"><i class="icon-sort"></i>
+								</button>	
+							</th>		
+							
+							<th > <label class="" text-align: center; >Action </label>	
+							</th>							
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat = "product in products| orderBy:orderProp:direction"">
+							<td>{{product.s_k_u}}</td>
+							<td>{{product.name}}</td>
+							<td>{{product.price}} &euro;</td>
+							<td><button type = "button" data-toggle = "modal" data-target = "#update_product" ng-click = "selectProduct(product)" class = "btn btn-sm btn-warning"><span class = "glyphicon glyphicon-edit"></span> Edit</button> | <button type = "button" data-toggle = "modal"  data-target = "#delete_product" ng-click = "selectProduct(product)" class = "btn btn-sm btn-danger"><span class = "glyphicon glyphicon-trash"></span> Delete</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>	
+	
+	<div class="modal fade" id="add_product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<form name = newform>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title text-info" id="myModalLabel">Add Product</h4>
+				</div>
+				<div class="modal-body">	
+						<div class = "form-group">
+							<label>SKU</label>
+							<input type  = "text" name = "SKU" class = "form-control" required ng-model = "newProduct.sKU"/>
+							<span ng-show="newform.SKU.$error.required">The field can not be empty!</span>	
+						</div>
+						<div class = "form-group">
+							<label>Name</label>
+							<input type = "text" name = "Name" class = "form-control" required ng-model = "newProduct.name"/>
+							<span ng-show="newform.Name.$error.required">The field can not be empty!</span>	
+						</div>
+						<div class = "form-group">
+							<label>Price</label>
+							<input type = "number" name = "Price" class = "form-control" required ng-model = "newProduct.price"/>
+							<span ng-show="newform.Price.$error.required">The field should be the currency!</span>	
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button  class="btn btn-primary" ng-disabled="newform.$invalid" ng-click = "saveProduct()" data-dismiss = "modal"><span class = "glyphicon glyphicon-save"></span> Save</button>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="update_product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<form name = myform>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title text-info" id="myModalLabel">Updating Product</h4>
+				</div>
+				<div class="modal-body">	
+						<div class = "form-group">
+							<label>SKU</label>
+							<input type  = "text" name = "SKU" class = "form-control" required ng-model = "selectedProduct.s_k_u"/>
+							<span ng-show="myform.SKU.$error.required">The field can not be empty!</span>
+						</div>
+						<div class = "form-group">
+							<label>Name</label>
+							<input type = "text" name = "Name" class = "form-control" required ng-model = "selectedProduct.name"/>
+							<span ng-show="myform.Name.$error.required">The field can not be empty!</span>
+						</div>
+						<div class = "form-group">
+							<label>Price</label>
+							<input type = "number" name = "Price" class = "form-control" required ng-model = "selectedProduct.price" ng-model = "newProduct.price"/>
+							<span ng-show="myform.Price.$error.required">The field should be the currency!</span>	
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button  class="btn btn-success" ng-disabled="myform.$invalid" data-dismiss = "modal" ng-click = "updateProduct(selectedProduct)"><span class = "glyphicon glyphicon-edit"></span> Update</button>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="delete_product" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<form>
+				<div class="modal-body">	
+						<center><h4 class = "text-danger">Are you sure to delete this product?</h4></center>
+				</div>
+				<div class="modal-footer">
+					<button  class="btn btn-danger" data-dismiss = "modal" ng-click = "deleteProduct(product)"><span class = "glyphicon glyphicon-check"></span> Yes</button>
+					<button  class="btn btn-success"  data-dismiss = "modal"><span class = "glyphicon glyphicon-remove"></span> No</button>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+AppBundle\Entity\Post:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\PostRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        sKU:
+            type: string
+            length: '255'
+            column: SKU
+        name:
+            type: string
+            length: '255'
+            column: Name
+        price:
+            type: decimal
+            precision: '5'
+            scale: '2'
+            column: Price
+    lifecycleCallbacks: {  }

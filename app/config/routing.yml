@@ -1,0 +1,8 @@
+app_post_product:
+    resource: "@AppBundle/Controller/PostRESTController.php"
+    type:   rest
+    prefix:   /product
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
