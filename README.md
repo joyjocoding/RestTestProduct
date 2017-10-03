@@ -132,9 +132,9 @@ $curl -X DELETE http://localhost:8000/app_dev.php/product/posts/1
 ```
 
 ## Using the web service
-The frontend are using the following folders and files in the repositry:
-folders: **css, fonts, js**
-file: **index.html**
+The frontend is using AngularJS to call the REST API  and the Bootstrap for UI design which are included in the following folders and files:
+* folders: **css, fonts, js**
+* file: **index.html**
 
 The web is using base resource url:http://localhost:8000/app_dev.php/product/posts/:id, you can configure a different url in the **js/angular.js** file. 
 To start the web, run **index.html** in any web browser.
