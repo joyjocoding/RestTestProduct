@@ -16,11 +16,11 @@ Simple product CRUD web developed by AngularJS and Symfony.
 ## Installation
 1. First install and configure the symfony2.8 framework, see https://symfony.com/doc/2.8/setup.html.
 
-1. Require the following bundleas:
-  1. nelmio/NelmioCorsBundle  
-  1. friendsofsymfony/rest-bundle
-  1. jms/serializer-bundle
-  1. voryx/restgeneratorbundle
+2. Require the following bundleas:
+    * nelmio/NelmioCorsBundle  
+    * friendsofsymfony/rest-bundle
+    * jms/serializer-bundle
+    * voryx/restgeneratorbundle
   
 ## Configuration
 Using the following command in the Symfony project directory: 
@@ -32,7 +32,7 @@ $ php composer require voryx/restgeneratorbundle dev-master
 ```
 
 Refer the details about the budle for generating the REST controller here: Refer here: https://github.com/voryx/restgeneratorbundle/blob/master/README.md
-1.Add these bundles to your application's kernel in app/AppKernel.php along with other dependencies:
+1. Add these bundles to your application's kernel in  **app/AppKernel.php**  along with other dependencies:
 
 ```php
 public function registerBundles()
@@ -48,7 +48,7 @@ public function registerBundles()
     //...
 }
 ```
-1. Cofigure the app/config/config.yml as following:
+2. Cofigure the ** app/config/config.yml ** as following:
 ```yaml
 framework:
     csrf_protection: false #only use for public API
@@ -73,7 +73,7 @@ nelmio_cors:
         expose_headers: []
         max_age: 0
     paths:
-        '^/api/':
+        '^/test/':
             allow_origin: ['*']
             allow_headers: ['*']
             allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
@@ -87,56 +87,54 @@ sensio_framework_extra:
 
 ## Generating the Controller
 
-1.Setup the databae in app/config/parameters.yml file, see https://symfony.com/doc/current/doctrine.html
-you can create the mySQL database with the post.sql file.
+1. Setup the databae in app/config/parameters.yml file, see https://symfony.com/doc/current/doctrine.html
 
-1. Create a new entity called 'Post'
+2. Create a new entity called 'Product'
 ```bash
-$ php app/console doctrine:generate:entity --entity=AppBundle:Post --format=annotation --fields="SKU:string(255) Name:string(255) Price:decimal(13,4)" --no-interaction
+$ php app/console doctrine:generate:entity --entity=AppBundle:Product --format=annotation --fields="sku:string(255) name:string(255) price:decimal(13,4)" --no-interaction
 ``` 
-
-1. Update the database schema:
+3. Update the database schema:
 ```bash
 $ php app/console doctrine:schema:update --force
 ```
-1. Generate the API controller:
+4. Generate the API controller:
 ```bash
-$ php app/console voryx:generate:rest --entity="AppBundle:Post"
+$ php app/console voryx:generate:rest --entity="AppBundle:Product"
 ```
 
 ## Testing the REST API
 
 You could install the POSTMAN extension for the browser chrome or you can using the following curl command:
  
-Creating the product('POST'):
+* Creating the product('POST'):
  ```bash
-curl -i -H "Content-Type:application/json" -X POST -d "{\"sKU\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/product/posts
+curl -i -H "Content-Type:application/json" -X POST -d "{\"sKU\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/test/products
 ```
 
-Updating the product(PUT): 
+* Updating the product(PUT): 
 ```bash
-curl -i -H "Content-Type:application/json" -X PUT -d "{\"sKU\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/product/posts/1
+curl -i -H "Content-Type:application/json" -X PUT -d "{\"sKU\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/test/products/1
 ```
 
-Get all products('GET')
+* Get all products('GET')
 ```bash
-$ curl http://localhost:8000/app_dev.php/product/posts
+$ curl http://localhost:8000/app_dev.php/test/products
 ```
 
-Get one product ('GET')
+* Get one product ('GET')
 ```bash
-$curl http://localhost:8000/app_dev.php/product/posts/1
+$curl http://localhost:8000/app_dev.php/test/products/1
 ```
 
-Delete one product('DELETE')
+* Delete one product('DELETE')
 ```bash
-$curl -X DELETE http://localhost:8000/app_dev.php/product/posts/1
+$curl -X DELETE http://localhost:8000/app_dev.php/test/products/1
 ```
 
 ## Using the web service
-The frontend are using the following folders and files in the repositry:
-folders: css, fonts, js
-file: index.html
+The frontend is using AngularJS to call the REST API  and the Bootstrap for UI design which are included in the following folders and files:
+* folders: **css, fonts, js**
+* file: **index.html**
 
-The web is using base resource url:http://localhost:8000/app_dev.php/product/posts/:id, you can configure a different url in the js/angular.js file. 
-To start the web, run index.html in any web browser.
+The web is using base resource url:http://localhost:8000/app_dev.php/test/products/:id, you can configure a different url in the **js/angular.js** file. 
+To start the web, run **index.html** in any web browser.
