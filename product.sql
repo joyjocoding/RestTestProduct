@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 03, 2017 at 06:29 PM
+-- Generation Time: Oct 04, 2017 at 02:45 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.4.17
 
@@ -23,24 +23,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `post`
+-- Table structure for table `product`
 --
 
-CREATE TABLE IF NOT EXISTS `post` (
+CREATE TABLE IF NOT EXISTS `product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `SKU` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `Price` decimal(13,4) NOT NULL,
+  `sku` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `price` decimal(13,4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=50 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `post`
+-- Dumping data for table `product`
 --
 
-INSERT INTO `post` (`id`, `SKU`, `Name`, `Price`) VALUES
-(37, '1234abcd', 'sumgsun2', '122.5656'),
-(47, 'testesttestr', 'test2', '123.8900');
+INSERT INTO `product` (`id`, `sku`, `name`, `price`) VALUES
+(3, 'SM-J510FZKUPHE', 'Samsung J510 color negro', '199.0000'),
+(4, 'SM-J510FZKUPHt', 'Samsung S6 color silver', '288.9900');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
