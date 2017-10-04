@@ -25,13 +25,13 @@ Simple product CRUD web developed by AngularJS and Symfony.
 ## Configuration
 Using the following command in the Symfony project directory: 
 ```bash
-$ composer require nelmio/cors-bundle
-$ composer require friendsofsymfony/rest-bundle:1.1.0
-$ composer require jms/serializer-bundle
+$ php composer require nelmio/cors-bundle
+$ php composer require friendsofsymfony/rest-bundle:1.1.0
+$ php composer require jms/serializer-bundle
 $ php composer require voryx/restgeneratorbundle dev-master
 ```
 
-Refer the details about the budle for generating the REST controller here: Refer here: https://github.com/voryx/restgeneratorbundle/blob/master/README.md
+Refer the details about the budle for generating the REST controller here: https://github.com/voryx/restgeneratorbundle/blob/master/README.md
 1. Add these bundles to your application's kernel in  **app/AppKernel.php**  along with other dependencies:
 
 ```php
@@ -87,7 +87,7 @@ sensio_framework_extra:
 
 ## Generating the Controller
 
-1. Setup the databae in app/config/parameters.yml file, see https://symfony.com/doc/current/doctrine.html
+1. Setup the database in **app/config/parameters.yml** file, see https://symfony.com/doc/current/doctrine.html
 
 2. Create a new entity called 'Product'
 ```bash
@@ -104,7 +104,7 @@ $ php app/console voryx:generate:rest --entity="AppBundle:Product"
 
 ## Testing the REST API
 
-You could install the POSTMAN extension for the browser chrome or you can using the following curl command:
+You could install the POSTMAN extension for the browser chrome or you can use the following curl commands:
  
 * Creating the product('POST'):
  ```bash
