@@ -48,7 +48,7 @@ public function registerBundles()
     //...
 }
 ```
-2. Cofigure the ** app/config/config.yml ** as following:
+2. Cofigure the **app/config/config.yml** as following:
 ```yaml
 framework:
     csrf_protection: false #only use for public API
@@ -138,3 +138,16 @@ The frontend is using AngularJS to call the REST API  and the Bootstrap for UI d
 
 The web is using base resource url:http://localhost:8000/app_dev.php/test/products/:id, you can configure a different url in the **js/angular.js** file. 
 To start the web, run **index.html** in any web browser.
+
+### The screenshots can be found as following:
+   * Main interface
+<img src="https://github.com/joyjocoding/RestTestProduct/raw/master/screenshots/1.main.JPG" alt="main interface" width="500" height="360">
+
+   * Add product
+<img src="https://github.com/joyjocoding/RestTestProduct/raw/master/screenshots/2.add.JPG" alt="add product" width="500" height="360">
+   
+   * Update product
+<img src="https://github.com/joyjocoding/RestTestProduct/raw/master/screenshots/3.edit.JPG" alt="update product" width="500" height="360">
+  
+  * Delete product
+<img src="https://github.com/joyjocoding/RestTestProduct/raw/master/screenshots/4.delete.JPG" alt="delete product" width="500" height="350">
