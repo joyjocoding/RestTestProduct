@@ -108,12 +108,12 @@ You could install the POSTMAN extension for the browser chrome or you can use th
  
 * Creating the product('POST'):
  ```bash
-curl -i -H "Content-Type:application/json" -X POST -d "{\"sKU\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/test/products
+curl -i -H "Content-Type:application/json" -X POST -d "{\"sku\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/test/products
 ```
 
 * Updating the product(PUT): 
 ```bash
-curl -i -H "Content-Type:application/json" -X PUT -d "{\"sKU\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/test/products/1
+curl -i -H "Content-Type:application/json" -X PUT -d "{\"sku\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/test/products/1
 ```
 
 * Get all products('GET')
