@@ -25,13 +25,13 @@ Simple product CRUD web developed by AngularJS and Symfony.
 ## Configuration
 Using the following command in the Symfony project directory: 
 ```bash
-$ composer require nelmio/cors-bundle
-$ composer require friendsofsymfony/rest-bundle:1.1.0
-$ composer require jms/serializer-bundle
+$ php composer require nelmio/cors-bundle
+$ php composer require friendsofsymfony/rest-bundle:1.1.0
+$ php composer require jms/serializer-bundle
 $ php composer require voryx/restgeneratorbundle dev-master
 ```
 
-Refer the details about the budle for generating the REST controller here: Refer here: https://github.com/voryx/restgeneratorbundle/blob/master/README.md
+Refer the details about the budle for generating the REST controller here: https://github.com/voryx/restgeneratorbundle/blob/master/README.md
 1. Add these bundles to your application's kernel in  **app/AppKernel.php**  along with other dependencies:
 
 ```php
@@ -48,7 +48,7 @@ public function registerBundles()
     //...
 }
 ```
-2. Cofigure the ** app/config/config.yml ** as following:
+2. Cofigure the **app/config/config.yml** as following:
 ```yaml
 framework:
     csrf_protection: false #only use for public API
@@ -87,7 +87,7 @@ sensio_framework_extra:
 
 ## Generating the Controller
 
-1. Setup the databae in app/config/parameters.yml file, see https://symfony.com/doc/current/doctrine.html
+1. Setup the database in **app/config/parameters.yml** file, see https://symfony.com/doc/current/doctrine.html
 
 2. Create a new entity called 'Product'
 ```bash
@@ -104,16 +104,16 @@ $ php app/console voryx:generate:rest --entity="AppBundle:Product"
 
 ## Testing the REST API
 
-You could install the POSTMAN extension for the browser chrome or you can using the following curl command:
+You could install the POSTMAN extension for the browser chrome or you can use the following curl commands:
  
 * Creating the product('POST'):
  ```bash
-curl -i -H "Content-Type:application/json" -X POST -d "{\"sKU\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/test/products
+curl -i -H "Content-Type:application/json" -X POST -d "{\"sku\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/test/products
 ```
 
 * Updating the product(PUT): 
 ```bash
-curl -i -H "Content-Type:application/json" -X PUT -d "{\"sKU\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/test/products/1
+curl -i -H "Content-Type:application/json" -X PUT -d "{\"sku\":\"xyztu\",\"name\":\"test\",\"price\":\"777.00\"}" http://localhost:8000/app_dev.php/test/products/1
 ```
 
 * Get all products('GET')
@@ -138,3 +138,16 @@ The frontend is using AngularJS to call the REST API  and the Bootstrap for UI d
 
 The web is using base resource url:http://localhost:8000/app_dev.php/test/products/:id, you can configure a different url in the **js/angular.js** file. 
 To start the web, run **index.html** in any web browser.
+
+### The screenshots can be found as following:
+   * Main interface
+<img src="https://github.com/joyjocoding/RestTestProduct/raw/master/screenshots/1.main.JPG" alt="main interface" width="500" height="360">
+
+   * Add product
+<img src="https://github.com/joyjocoding/RestTestProduct/raw/master/screenshots/2.add.JPG" alt="add product" width="500" height="360">
+   
+   * Update product
+<img src="https://github.com/joyjocoding/RestTestProduct/raw/master/screenshots/3.edit.JPG" alt="update product" width="500" height="360">
+  
+  * Delete product
+<img src="https://github.com/joyjocoding/RestTestProduct/raw/master/screenshots/4.delete.JPG" alt="delete product" width="500" height="350">
